@@ -1,10 +1,12 @@
 package Application;
 
-import controller.getinfo.GetDisc;
-import controller.getinfo.GetRam;
+import com.github.britooo.looca.api.core.Looca;
+import domain.getinfo.GetDisc;
+import domain.getinfo.GetRam;
 
 public class Main {
     public static void main(String[] args) {
+        Looca looca = new Looca();
         GetRam ramInfo = new GetRam();
         GetDisc discInfo = new GetDisc();
 
@@ -17,5 +19,7 @@ public class Main {
         System.out.println(String.format("Numero de discos: %d",discInfo.getNumberOfDisks()));
         System.out.println(String.format("Tamaho total disco: %.2f",discInfo.getDiskSize()));
         System.out.println(String.format("Byte escrita: %.2f",discInfo.listDiskOfReadBytes().get(0)));
+
+        System.out.println(looca.getGrupoDeDiscos().getDiscos());
     }
 }
